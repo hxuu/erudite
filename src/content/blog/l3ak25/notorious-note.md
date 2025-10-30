@@ -47,7 +47,7 @@ By polluting `Object.prototype` using a query parameter, we bypass a `sanitize-h
 
 ## Initial Analysis
 
-![web application showcase](/blog/images/l3ak25/l3ak-notorious-note.gif)
+![web application showcase](/images/l3ak25/l3ak-notorious-note.gif)
 
 This looked like a straightforward reflected XSS challenge. User input comes from a `note` query parameter, which is passed to a sanitization function and then injected into the DOM via `innerHTML`:
 
