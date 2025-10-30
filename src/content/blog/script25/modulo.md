@@ -89,7 +89,7 @@ In order to escape the jail, we first need to understand what our goal is, and w
 The first is achieved by figuring our sink, i.e. the dangerous function that we should
 target to get code execution, which in this case is [exec](https://docs.python.org/3/library/functions.html#exec).
 
-![exec(source, /, globals=None, locals=None, *, closure=None)](/blog/images/2025-08-18-14-20-47.png)
+![exec(source, /, globals=None, locals=None, *, closure=None)](/images/2025-08-18-14-20-47.png)
 
 `exec` takes a string `source` (`payload` in this case) and parses it as a suite of Python
 statements which is then executed (unless a syntax error occurs).
