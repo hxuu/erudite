@@ -4,7 +4,7 @@ export const SITE: Site = {
   title: 'hxuu',
   description:
     'Knowledge spreader and cybersecurity enthusiast based in Algeria.',
-  href: 'https://hxuu.github.io/blog/',
+  href: 'https://hxuu.github.io',
   author: 'hxuu',
   locale: 'en-US',
   featuredPostCount: 2,
