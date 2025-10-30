@@ -42,7 +42,7 @@ In the **cookie-recipes-v3** challenge, ExpressJS's use of the `qs` library for 
 
 At first glance, the challenge presents itself as a simple cookie counter application. Three buttons to bake cookies in different amounts, a disabled button for a larger batch, and one final button to deliver cookies.
 
-![website](/blog/images/2025-04-12-12-22-02.png)
+![website](/images/2025-04-12-12-22-02.png)
 
 The UI is minimal, but the disabling of `Super cookie recipe (makes a million)` button screamed a hint for me. Let's check the source code:
 
@@ -152,7 +152,7 @@ How do I know they matter? Well, because one serves the flag, and the other allo
 
 Looking closer, The server doesn’t validate the type of `number`, only its **length**. That might seem restrictive, so let's check [express](https://expressjs.com/en/5x/api) docs for more info.
 
-![qs-expressjs-docs](/blog/images/2025-04-12-12-22-31.png)
+![qs-expressjs-docs](/images/2025-04-12-12-22-31.png)
 
 Something in red, yay! Let’s take a closer look at how `req.query.number` is actually interpreted.
 
@@ -168,7 +168,7 @@ Tip: The solution above works because NaN compared to any numeric value returns 
 
 Let's now proceed with my solution, elegant and highlights my overthinking nature LOL.
 
-![overthinking-meme](/blog/images/2025-04-12-12-24-34.png)
+![overthinking-meme](/images/2025-04-12-12-24-34.png)
 
 ---
 
@@ -331,7 +331,7 @@ dice{cookie_cookie_cookie}
 
 Flag is: `dice{cookie_cookie_cookie}`
 
-![celebration](/blog/images/2025-04-12-12-35-09.png)
+![celebration](/images/2025-04-12-12-35-09.png)
 
 ## Conclusions
 

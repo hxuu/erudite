@@ -59,7 +59,7 @@ At a glance, this is **as minimalistic** as a web application could get. We've g
 that we can write into, and two options to pick which 'person' to send this letter to:
 either **lordhttp** or **noopsy.**
 
-![showcase](/blog/images/n0ps25-web-plotwist.gif)
+![showcase](/images/n0ps25-web-plotwist.gif)
 
 So **lordhttp lets us through**, whereas noopsy doesn't. Interesting~
 
@@ -72,7 +72,7 @@ Checking the response header of the requests, we see that the backend is behind
 a [reverse proxy](https://www.youtube.com/watch?v=ozhe__GdWC8&t=4s&pp=ygUXd2hhdCBpcyBhIHJldmVyc2UgcHJveHk%3D), **NGINX**, specifically.
 So he, might be the one dropping our request before it ever reaches the backend.
 
-![server response header](/blog/images/2025-06-04-17-52-14.png)
+![server response header](/images/2025-06-04-17-52-14.png)
 
 This **asymmetric behavior** suggests that the proxy (NGINX) and the backend may handle requests differently.
 
@@ -99,7 +99,7 @@ At a high level, we have three entities that usually interact:
 * The edge server acts like a gatekeeper: it applies security filters and decides what gets passed to the backend.
 * The backend processes the request and sends the response back to the edge server, which forwards it to you.
 
-![how web works](/blog/images/2025-06-04-15-53-59.png)
+![how web works](/images/2025-06-04-15-53-59.png)
 
 Edge servers here are called **reverse proxies**, namely NGINX.
 
@@ -118,7 +118,7 @@ Here's where **h2c upgrades** come into play. Let's investigate this further.
 
 |                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------- |
-| ![h2c Smuggling: Request Smuggling Via HTTP/2 Cleartext (h2c)](/blog/images/2025-06-04-15-26-43.png) |
+| ![h2c Smuggling: Request Smuggling Via HTTP/2 Cleartext (h2c)](/images/2025-06-04-15-26-43.png) |
 | Taken from [Jake Miller's](https://bishopfox.com/blog/h2c-smuggling-request) research. Big thanks for making this information public. |
 
 To understand this vulnerability, we need to grasp a few core ideas about
@@ -348,7 +348,7 @@ But... Nothing worked :(
 
 The server responds with a **riddle**.
 
-![sto riddle](/blog/images/2025-06-04-14-21-05.png)
+![sto riddle](/images/2025-06-04-14-21-05.png)
 
 Let’s decode it:
 

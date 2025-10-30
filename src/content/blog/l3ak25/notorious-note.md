@@ -35,7 +35,7 @@ editPost:
 
 > Casual coding vibes...until the notes start acting weird.
 
-![challenge description](/blog/images/2025-07-15-11-53-30.png)
+![challenge description](/images/2025-07-15-11-53-30.png)
 
 * Author: [S1mple](https://discord.com/users/621008731773206538)
 
@@ -194,7 +194,7 @@ obj.__proto__ = { sneaky: 'value' };
 
 Now, even though `obj` has no own property named `sneaky`, accessing `obj.sneaky` will return `"value"`, because it was inherited from the newly assigned prototype.
 
-![prototype chain behavior](/blog/images/2025-07-15-12-27-55.png)
+![prototype chain behavior](/images/2025-07-15-12-27-55.png)
 
 > The reason this works is that `__proto__` has a `[[Set]]` internal method, meaning assignments to it are interpreted as prototype mutations, not property additions.
 

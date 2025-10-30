@@ -83,7 +83,7 @@ and get the file contents displayed to you.
 
 ### `Inside SSH`
 
-![inside-ssh](/blog/images/2024-08-30-11-28-28.png)
+![inside-ssh](/images/2024-08-30-11-28-28.png)
 
 The flag as highlighted by the Dockerfile is stored inside an environment variable
 called `FLAG`. Doing a quick google search, we can see that environment variables
@@ -94,7 +94,7 @@ With that knowledge in hand, we should get the flag just by getting the results 
 
 Right?
 
-![right?](/blog/images/2024-08-30-11-38-10.png)
+![right?](/images/2024-08-30-11-38-10.png)
 
 We got nothing... That's weird.
 
@@ -107,7 +107,7 @@ a file, FileResponse checks the file's size using the os.stat syscall.
 
 ### `from Starlette source code`
 
-![stat-check](/blog/images/2024-08-30-11-52-53.png)
+![stat-check](/images/2024-08-30-11-52-53.png)
 
 The `os.stat` function retrieves various attributes about a file, such as its size, modification time, and permissions. When `os.stat` is called on a file, it checks the filesystem for this information.
 
@@ -159,7 +159,7 @@ done
 
 Running this on remote, and doing few curls of the `the-link` file should give us the flag.
 
-![solve](/blog/images/2024-08-30-12-32-01.png)
+![solve](/images/2024-08-30-12-32-01.png)
 
 ---
 

@@ -40,12 +40,12 @@ This challenge involved exploiting how Node.js handles streams and events in an 
 
 ## Initial Analysis
 
-![registration page](/blog/images/2025-04-15-11-05-05.png)
+![registration page](/images/2025-04-15-11-05-05.png)
 
 At first glance, this looks like your classic referral-based app: users can register,
 refer others, and exchange referrals for coins. Once you have enough coins, you can buy the flag. Simple enough.
 
-![purchase-flag](/blog/images/2025-04-15-11-05-38.png)
+![purchase-flag](/images/2025-04-15-11-05-38.png)
 
 Checking the source code:
 
@@ -258,7 +258,7 @@ The second is the use of `req.on()`. I've never used those to handle user data b
 
 When I started tackling the challenge, I tried going down the intended route. The issue? You need an astronomical number of referrals to reach the required 100_000_000_000 coins. That's simply not practical.
 
-![scam-meme](/blog/images/2025-04-15-10-49-17.png)
+![scam-meme](/images/2025-04-15-10-49-17.png)
 
 ---
 
@@ -309,7 +309,7 @@ The app ties users and their referral codes to tokens, and tokens are only set *
 
 Turns out, this isn’t your usual Express app. While it uses Express for routing, the actual user creation is done by listening to **Node.js core HTTP events**, particularly the 'data' and 'end' events on the request object.
 
-![express-node-integration](/blog/images/2025-04-15-19-42-29.png)
+![express-node-integration](/images/2025-04-15-19-42-29.png)
 
 That means the user is only fully created once the `'end'` event is emitted — after the request body is fully received.
 
@@ -354,7 +354,7 @@ app.listen(3000, () => console.log('Listening on http://localhost:3000'));
 ) | nc localhost 3000
 ```
 
-![route-handler-triggered](/blog/images/2025-04-15-10-46-28.png)
+![route-handler-triggered](/images/2025-04-15-10-46-28.png)
 
 See. The server doesn’t wait for the full body to call the route logic. That's because Express registers handlers early — and starts sending back a response early too.
 
@@ -490,7 +490,7 @@ print(flag)
 
 Flag is: `dice{007227589c05e703}`
 
-![celebrating-flag](/blog/images/2025-04-15-11-14-30.png)
+![celebrating-flag](/images/2025-04-15-11-14-30.png)
 
 ## Conclusions
 

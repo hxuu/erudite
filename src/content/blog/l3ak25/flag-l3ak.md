@@ -35,7 +35,7 @@ editPost:
 
 > What's the name of this CTF? Yk what to do 😉
 
-![challenge description](/blog/images/2025-07-14-12-27-13.png)
+![challenge description](/images/2025-07-14-12-27-13.png)
 
 * Author: [p._.k](https://discord.com/users/1267886144306282621)
 
@@ -49,7 +49,7 @@ The application is vulnerable to a side-channel attack known as XS-Search, a sub
 
 ## Initial Analysis
 
-![web application showcase](/blog/images/l3ak25/flag-l3ak-showcase.gif)
+![web application showcase](/images/l3ak25/flag-l3ak-showcase.gif)
 
 At first glance, this is a simple blog-style website. You can search blog posts, and if a post matches your query, it shows up.
 
@@ -145,7 +145,7 @@ In our case, the oracle is binary:
 * If a redacted string appears (********), the queried 3-char substring is part of the flag.
 * If the result is empty, it’s not.
 
-![xs-leaks expalanatory picture](/blog/images/2025-07-14-12-38-19.png)
+![xs-leaks expalanatory picture](/images/2025-07-14-12-38-19.png)
 
 ### XS-Search (Our Case)
 
@@ -236,7 +236,7 @@ while not known.endswith('}'):
 print(f"\n✅ Final reconstructed flag: {known}")
 ```
 
-![web application showcase](/blog/images/l3ak25/leaking-flag.gif)
+![web application showcase](/images/l3ak25/leaking-flag.gif)
 
 Flag is: `L3AK{L3ak1ng_th3_Fl4g??}`
 

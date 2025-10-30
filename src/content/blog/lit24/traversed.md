@@ -39,17 +39,17 @@ I made this website! you can't see anything else though... right?? URL: http://l
 Based on the name of the challenge, I can feel a path traversal vulnerability looming around
 lol, anyway, let's check the website:
 
-![initial](/blog/images/2024-08-13-19-11-40.png)
+![initial](/images/2024-08-13-19-11-40.png)
 
 As we can see, nothing is in the page, the hint though lies within the url bar,
 let's check if can traverse the the filesystem and reveal the contents of `/etc/passwd`.
 
-![trying-to-use-browser](/blog/images/2024-08-13-19-13-28.png)
+![trying-to-use-browser](/images/2024-08-13-19-13-28.png)
 
 We got nothing, but that's only because we used a dot, The server might be configured to decode URL-encoded paths before processing them,
 so let's try again, with the url-encded version of `.` that is `%2e`.
 
-![got-etc-passwd](/blog/images/2024-08-13-19-19-09.png)
+![got-etc-passwd](/images/2024-08-13-19-19-09.png)
 
 Noice, we have arbitrary file read, we can also traverse the filesystem, but what we don't
 have is the flag name and location. Guessing that the flag would be in the same directory
@@ -61,7 +61,7 @@ of the process accessing it, to extract the file `flag.txt` using something like
 <traversing-up-the-file-system>/proc/self/cwd/flag.txt
 ```
 
-![flag](/blog/images/2024-08-13-19-47-52.png)
+![flag](/images/2024-08-13-19-47-52.png)
 
 ---
 

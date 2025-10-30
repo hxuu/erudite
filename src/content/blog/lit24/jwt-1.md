@@ -38,7 +38,7 @@ I just made a website. Since cookies seem to be a thing of the old days, I updat
 
 We are presented with this interface
 
-![initial](/blog/images/2024-08-13-18-35-27.png)
+![initial](/images/2024-08-13-18-35-27.png)
 
 If we hit GET FLAG, we see a simple unauthorized message, and since the challenge's
 name is `jwt-1`, it's likely that we have to bypass the authorization mechanism put in place
@@ -47,13 +47,13 @@ by the developers of this application.
 Let's go ahead and create an account and log in. After that, we can notice using
 the developers' tools that a json web token cookie was generated.
 
-![jwt-cookie](/blog/images/2024-08-13-18-38-44.png)
+![jwt-cookie](/images/2024-08-13-18-38-44.png)
 
 In case you weren't familar, JSON web tokens (JWTs) are a standardized format for sending cryptographically signed JSON data between systems.
 
 A JWT consists of 3 parts: a header, a payload, and a signature. These are each separated by a dot, as shown in the following example:
 
-![jwt-format](/blog/images/2024-08-13-18-40-55.png)
+![jwt-format](/images/2024-08-13-18-40-55.png)
 
 The reason why jwt tokens are secure even if stolen is because of the key used
 in the process of generation, without it, it's almost impossible to generate a valid
@@ -61,7 +61,7 @@ token. Luckily for us, this is a CTF challenge, and the signature might not be v
 
 Based on the decoding of the given jwt token, we can see the following format:
 
-![jwt-decoded](/blog/images/2024-08-13-18-43-31.png)
+![jwt-decoded](/images/2024-08-13-18-43-31.png)
 
 As we can see, there is an admin field which is set to false in our case, let's generate
 a new token with admin set to true and an arbitrary key. I used [jwt.io](https://jwt.io/)
@@ -74,7 +74,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaHh1dSIsImFkbWluIjp0cnVlfQ.U_vt
 Using the browser application section to modify the cookie, we hit GET FLAG once again
 with the new jwt in place:
 
-![flag](/blog/images/2024-08-13-18-46-40.png)
+![flag](/images/2024-08-13-18-46-40.png)
 
 ---
 

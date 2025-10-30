@@ -67,7 +67,7 @@ At first when I tried to submit the flag `LITCTF{your_%cfOund_teh_fI@g_94932}`,
 it said wrong flag, so I checked the hint, our flag doesn't work, let's take
 the javascript code inside the script tag and run it with nodejs
 
-![nodejs-pic](/blog/images/2024-08-13-18-30-38.png)
+![nodejs-pic](/images/2024-08-13-18-30-38.png)
 
 ---
 

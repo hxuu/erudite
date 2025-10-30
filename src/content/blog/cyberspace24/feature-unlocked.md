@@ -44,12 +44,12 @@ The world's coolest app has a brand new feature! Too bad it's not released until
 We're given the following web page:
 
 
-![initial](/blog/images/2024-09-02-10-32-42.png)
+![initial](/images/2024-09-02-10-32-42.png)
 
 It seems that we have to unlock the new feature which is only available after the CTF ends:
 
 
-![feature-initial](/blog/images/2024-09-02-10-33-19.png)
+![feature-initial](/images/2024-09-02-10-33-19.png)
 
 We obviously can't wait until the CTF ends, luckily for us, we're given the source code
 for the application [here](https://2024.csc.tf/files/2fcb84a23fe1a4a6453f4345951a062c/handout_featur_eunlocked.zip?token=eyJ1c2VyX2lkIjo4MDEsInRlYW1faWQiOjQwMCwiZmlsZV9pZCI6NTJ9.ZtWnVA.Go_XGd7hv5RMCLcG43jU7YpMRNU)
@@ -417,7 +417,7 @@ if 'Set-Cookie' in response.headers:
 
 Running `python gen.py` should give us the token
 
-![get-token](/blog/images/2024-09-02-11-03-04.png)
+![get-token](/images/2024-09-02-11-03-04.png)
 
 And it did! Let's now craft another script `solve.py` to retrieve the `flag.txt`
 
@@ -455,7 +455,7 @@ print(response.text)
 Running `python solve.py` should send a request to our webhook, and we should see the flag there.
 
 
-![flag](/blog/images/2024-09-02-11-06-34.png)
+![flag](/images/2024-09-02-11-06-34.png)
 
 There we go~ flag is: `CSCTF{d1d_y0u_71m3_7r4v3l_f0r_7h15_fl46?!}`
 

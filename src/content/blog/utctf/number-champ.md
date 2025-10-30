@@ -25,7 +25,7 @@ editPost:
     appendFilePath: true
 ---
 
-![challenge-description](/blog/images/2025-03-18-11-21-52.png)
+![challenge-description](/images/2025-03-18-11-21-52.png)
 Link for the challenge is [here](https://numberchamp-challenge.utctf.live/)
 
 ## 1. Challenge Overview
@@ -33,19 +33,19 @@ Link for the challenge is [here](https://numberchamp-challenge.utctf.live/)
 After clicking on the link of the challenge, the website asks for permission to get our geographical
 location. Also, according to the text on the screen, it seems like we're playing a game
 of numbers against opponents of the same Elo (or level), hence the *"find match"* button.
-![challenge-website](/blog/images/2025-03-18-11-25-24.png)
+![challenge-website](/images/2025-03-18-11-25-24.png)
 
 Say we allow the web application our location. We see a welcome message containing what seems to be
 a random username and a starting elo of 1000.
-![random username and starting elo](/blog/images/2025-03-18-11-29-41.png)
+![random username and starting elo](/images/2025-03-18-11-29-41.png)
 
 When we click on <find match> we see that we're matched with another player of relatively the same
 elo, and interestingly, a relative distance from our current position in miles. We are also prompted
 to enter a number and submit it to view the result of our battle. Let's do that:
-![playing the game](/blog/images/2025-03-18-11-33-47.png)
+![playing the game](/images/2025-03-18-11-33-47.png)
 
 Our result is a loss :)
-![game result](/blog/images/2025-03-18-11-34-43.png)
+![game result](/images/2025-03-18-11-34-43.png)
 
 In fact, no matter the number supplied to the game, we always lose the game lol, what a rigged game.
 
@@ -215,7 +215,7 @@ echo "winnerUUID: $winnerUUID"
 echo "match result: $matchRes"
 ```
 
-![results](/blog/images/2025-03-18-16-05-50.png)
+![results](/images/2025-03-18-16-05-50.png)
 Noice, we now have a player, a known geographical point against which the target has a known distance to.
 The problem is: Which direction is geopy located at? As we are right now, geopy could exist
 anywhere in the circle defined by winner location (ie lat,lon) and radius (distance) in miles.
@@ -229,7 +229,7 @@ It turns out the problem in our hand is a famous problem whose solution is used 
 The use of distances (or "ranges") for determining the unknown position coordinates of a point of interest
 is called Trilateration.
 
-![trilateration picture](/blog/images/2025-03-18-21-12-46.png)
+![trilateration picture](/images/2025-03-18-21-12-46.png)
 
 if you consider the Earth as a sphere, all points that are exactly X miles away from satellite 1 form a circle on the Earth's surface (the blue one). This circle is called a spherical circle or circle of radius X miles on the sphere. It is not a great circle (which would be the largest possible circle on a sphere), but rather a small circle because its center is not the center of the Earth.
 
@@ -263,7 +263,7 @@ to get his **exact** position.
 
 ### `trilateration.py`
 
-![trilateration-repo](/blog/images/2025-03-18-22-53-35.png)
+![trilateration-repo](/images/2025-03-18-22-53-35.png)
 
 > Note: The script needs a quite some tweaking to get it right, and tbh, I got better
 > results when my inital points were close enough. If somebody got an aswer to this,
@@ -272,7 +272,7 @@ to get his **exact** position.
 ---
 
 Perfect! We got our target latitude and longitude (`39.9404306, -82.9967132`).
-![target reached](/blog/images/2025-03-18-22-57-30.png)
+![target reached](/images/2025-03-18-22-57-30.png)
 Flag is the address of this player (according to google maps), in the following format all lowercase:
 
 ```
@@ -289,7 +289,7 @@ Navigating to google maps, and entering the coordinates, we get:
 
 Flag then is: `utflag{1059-s-high-st-columbus-43206}`
 
-![this is the alt for the image](/blog/images/2025-03-27-09-37-50.png)
+![this is the alt for the image](/images/2025-03-27-09-37-50.png)
 ---
 
 Lessons learned from this challenge:
@@ -302,9 +302,9 @@ Lessons learned from this challenge:
 ---
 
 This will be the place for the new image!
-![this is the alt for the image](/blog/images/2025-03-27-09-37-50.png)
+![this is the alt for the image](/images/2025-03-27-09-37-50.png)
 
 
 > note that the image path is the real path on the system
-> you need its path in your blog. since my blog is running on /blog => path should be /blog/images/
+> you need its path in your blog. since my blog is running on /blog => path should be /images/
 

@@ -39,7 +39,7 @@ Note: Due to security issue, you can't add a book now. Please come by later!
 
 We are given the following web page:
 
-![initial](/blog/images/2024-08-27-19-16-10.png)
+![initial](/images/2024-08-27-19-16-10.png)
 
 The application is built using ASP.NET Core, which is a cross-platform framework
 for developing dynamic, high-performance web solutions. You can read more [here](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0)
@@ -47,12 +47,12 @@ for developing dynamic, high-performance web solutions. You can read more [here]
 Let's examine the website functionality.
 
 
-![search](/blog/images/2024-08-27-19-19-19.png)
+![search](/images/2024-08-27-19-19-19.png)
 
 We can search for books.
 
 
-![add](/blog/images/2024-08-27-19-19-41.png)
+![add](/images/2024-08-27-19-19-41.png)
 
 and we can add books, but as the challenge description said, the add functionality
 is actually removed, and nothing happens when we try to upload anything.
@@ -320,7 +320,7 @@ The Dynamic LINQ library allows for constructing LINQ queries using string expre
 Interesting, I wonder if anything pops up if we search `dynamic linq vulnerability`
 on the internet.
 
-![search](/blog/images/2024-08-27-19-38-12.png)
+![search](/images/2024-08-27-19-38-12.png)
 
 RCE directly lol, let's read this article which describes the vulnerability [here](https://research.nccgroup.com/2023/06/13/dynamic-linq-injection-remote-code-execution-vulnerability-cve-2023-32571/):
 
@@ -358,16 +358,16 @@ Let's change our payload to be like this:
 
 Using the search field as our attack vector.
 
-![before-searching](/blog/images/2024-08-27-19-53-15.png)
+![before-searching](/images/2024-08-27-19-53-15.png)
 
 Click on search
 
-![after-searching](/blog/images/2024-08-27-19-53-26.png)
+![after-searching](/images/2024-08-27-19-53-26.png)
 
 Noice, no error. Let's now navigate to `/img/covers/output.txt` (we redirected the output of the flag to this file)
 
 
-![flag](/blog/images/2024-08-27-19-54-42.png)
+![flag](/images/2024-08-27-19-54-42.png)
 
 ---
 

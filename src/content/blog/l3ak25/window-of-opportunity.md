@@ -35,7 +35,7 @@ editPost:
 
 > The admin bot loves opening URLs. I implemented CSRF protection, but it seems as though I'm forgetting something. Can you find the issue?
 
-![challenge description](/blog/images/2025-07-16-21-42-14.png)
+![challenge description](/images/2025-07-16-21-42-14.png)
 
 * Author: [p._.k](https://discord.com/users/1267886144306282621)
 
@@ -55,7 +55,7 @@ This challenge demonstrates the dangers of `window.opener` in insecure browser c
 
 ## Initial Analysis
 
-![Application showcase](/blog/images/l3ak25/window-of-opp-showcase.gif)
+![Application showcase](/images/l3ak25/window-of-opp-showcase.gif)
 
 At first glance, this is clearly a CSRF challenge. Unlike XSS (which requires script injection into a trusted website),
 CSRF is about making an authenticated user (in this case, the admin bot) perform unintended actions that lead
@@ -222,7 +222,7 @@ This flag is passed to Puppeteer during browser initialization:
 browser = await puppeteer.launch({ headless: true, args });
 ```
 
-![--disable-web-security flag](/blog/images/2025-07-16-16-48-41.png)
+![--disable-web-security flag](/images/2025-07-16-16-48-41.png)
 
 This flag is normally meant for developers doing local testing and is not safe for anything else. But in CTF land? It’s a golden ticket.
 
@@ -337,7 +337,7 @@ This is helpful because navigation of the opener window is possible, which means
 the opened page can open a URL in the original tab or window NOT worrying about CSRF,
 because it's the same origin!
 
-![showcasing window relations](/blog/images/l3ak25/window-of-opp-opener.gif)
+![showcasing window relations](/images/l3ak25/window-of-opp-opener.gif)
 
 So we can navigate the admin to `/get_flag`, but could we read the response?
 
@@ -416,7 +416,7 @@ Attacker tab
 
 We host the webpage and deliver the attack
 
-![exploit](/blog/images/l3ak25/window-of-opp-exploit.gif)
+![exploit](/images/l3ak25/window-of-opp-exploit.gif)
 
 And Boom~
 

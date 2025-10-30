@@ -39,7 +39,7 @@ Welcome to the file sharing portal! We only support tar files!
 
 We are presented with the following interface
 
-![welcome](/blog/images/2024-08-09-15-08-57.png)
+![welcome](/images/2024-08-09-15-08-57.png)
 
 As well as the source code of the application.
 
@@ -165,7 +165,7 @@ tar -cvf proof-of-concept.tar "{{5*5}}"
 
 After the upload, we can see that the website indeed rendered 25 instead of `{{5*5}}`
 
-![proof-of-concept](/blog/images/2024-08-09-15-34-25.png)
+![proof-of-concept](/images/2024-08-09-15-34-25.png)
 
 Nice, we have confirmed that we have a SSTI, next is finding a way to run python code inside the template.
 But not any code... Code that will enable us to find the name of the flag, and eventually read it.
@@ -203,7 +203,7 @@ want to use to execute a shell command, and boom, command executed. Like this:
 I know this is a very roundabout way of going about things, but we'll need it in our challenge,
 because Flask by default passes certain variables to the jinja2 template by default, mainly:
 
-![defaults](/blog/images/2024-08-09-16-01-49.png)
+![defaults](/images/2024-08-09-16-01-49.png)
 
 We can use either one of those, but the easiest is the `request` object, from which
 we can access the application context, through which we can import the 'os' module, and get RCE!
@@ -234,12 +234,12 @@ This code snippet is used to execute a shell command from within a web template 
 
 Perfect! let's test this out with the `id` command. Here is the result:
 
-![id-command-ran](/blog/images/2024-08-09-16-52-47.png)
+![id-command-ran](/images/2024-08-09-16-52-47.png)
 
 We are root! we got remote code execution, rest is to find the flag. This can be done by listing the directory
 contents using a simple `ls`
 
-![ls](/blog/images/2024-08-09-16-54-18.png)
+![ls](/images/2024-08-09-16-54-18.png)
 
 noice~ the flag name is:
 
@@ -253,7 +253,7 @@ Change the command once again to
 cat flag_15b726a24e04cc6413cb15b9d91e548948dac073b85c33f82495b10e9efe2c6e.txt
 ```
 
-![flag](/blog/images/2024-08-09-16-55-38.png)
+![flag](/images/2024-08-09-16-55-38.png)
 
 And there we go~ The flag is: `n00bz{n3v3r_7rus71ng_t4r_4g41n!_f593b51385da}`
 

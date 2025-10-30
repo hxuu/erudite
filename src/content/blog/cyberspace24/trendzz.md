@@ -43,19 +43,19 @@ Staying active has its rewards. There's a special gift waiting for you, but it's
 We're given the following login page
 
 
-![initial](/blog/images/2024-09-02-11-15-04.png)
+![initial](/images/2024-09-02-11-15-04.png)
 
 let's register and check the main page
 
 
-![functionality](/blog/images/2024-09-02-11-15-54.png)
+![functionality](/images/2024-09-02-11-15-54.png)
 
 It a one page website, that enables us to create posts and view them. Checking the challenge
 description again, it seems that we have to post more than 12 posts to uncover the special "gift"
 which is probably the flag. Let's try posting then.
 
 
-![error-posts](/blog/images/2024-09-02-11-18-08.png)
+![error-posts](/images/2024-09-02-11-18-08.png)
 
 Oops, we can't create more than 10 posts. Why is that? Luckily for us, we're given the source code
 of the application [here](https://2024.csc.tf/files/b8af02ac0f411268b239e62fd2c6e7dd/handout_trendz.zip?token=eyJ1c2VyX2lkIjo4MDEsInRlYW1faWQiOjQwMCwiZmlsZV9pZCI6NTB9.ZtWjAA.MI0GGzruP8zhlBfSGxRmioVo8zQ)
@@ -206,7 +206,7 @@ if the number of posts > 12, then we return the flag.
 Let's check which endpoint makes call to DisplayFlag.
 
 
-![occurence](/blog/images/2024-09-02-11-29-57.png)
+![occurence](/images/2024-09-02-11-29-57.png)
 
 One occurence in the `main.go` script under the `user` group.
 
@@ -215,7 +215,7 @@ One occurence in the `main.go` script under the `user` group.
 If you look closely at the code, you'll know that the `CreatePost` function is vulnerable to race conditions because it checks the post count before inserting a new post. If multiple requests are processed simultaneously, each request may see the same count and insert posts, exceeding the allowed limit. This occurs because the count check and insertion are not done atomically, allowing concurrent requests to bypass the limit.
 
 
-![race-condition-vector](/blog/images/2024-09-02-11-35-01.png)
+![race-condition-vector](/images/2024-09-02-11-35-01.png)
 
 
 ## Exploitation
@@ -265,7 +265,7 @@ Running `python solve.py` should create more than 12 posts. To verify my claim,
 let's try to access `/user/flag` to see if we actually get the flag.
 
 
-![flag](/blog/images/2024-09-02-11-41-35.png)
+![flag](/images/2024-09-02-11-41-35.png)
 
 And there you go~ Flag is: `CSCTF{d2426fb5-a93a-4cf2-b353-eac8e0e9cf94}`
 

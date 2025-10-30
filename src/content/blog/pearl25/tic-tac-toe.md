@@ -25,7 +25,7 @@ editPost:
     appendFilePath: true
 ---
 
-![challenge-description](/blog/images/2025-03-09-21-56-22.png)
+![challenge-description](/images/2025-03-09-21-56-22.png)
 Challenge attachments and code [here](https://pearlctf.in/files/tic-tac-toe.zip)
 
 ## 1. Challenge overview
@@ -35,9 +35,9 @@ game over a web front. As we can see below, we can deploy and ping the game serv
 the squares to send an HTTP request to the game server containing our game state.
 
 
-![ping](/blog/images/2025-03-09-23-37-51.png)
+![ping](/images/2025-03-09-23-37-51.png)
 
-![state](/blog/images/2025-03-09-23-38-20.png)
+![state](/images/2025-03-09-23-38-20.png)
 
 Since the UI doesn't give away much of the web application's logic, let's dive into the source code
 to see how the latter works, namely, what endpoints are there and which of those can we tamper with.
@@ -294,7 +294,7 @@ print(info)
 
 > I'll leave the burden of understand my script to you. You have all the pieces you need.
 
-![system-info](/blog/images/2025-03-09-22-53-14.png)
+![system-info](/images/2025-03-09-22-53-14.png)
 
 Nice! We confirmed our assumption. We can move to the next step, which is retrieving the flag.
 
@@ -386,7 +386,7 @@ resp = requests.post(url, json=payload)
 print(resp.json())  # This should print the actual flag
 ```
 
-![flag-picture](/blog/images/2025-03-09-23-04-59.png)
+![flag-picture](/images/2025-03-09-23-04-59.png)
 
 ---
 

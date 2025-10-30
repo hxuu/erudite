@@ -50,11 +50,11 @@ that the flag will be retrieved using a technique like XSS, CSRF...etc
 
 Let's check out the challenge website:
 
-![challenge-initial](/blog/images/2024-08-18-22-29-45.png)
+![challenge-initial](/images/2024-08-18-22-29-45.png)
 
 Empty huh? Let's take a look now at the admin bot page:
 
-![admin-initial](/blog/images/2024-08-18-22-30-55.png)
+![admin-initial](/images/2024-08-18-22-30-55.png)
 
 Apparently, we have a form that has a url section, we can submit a URL, and the admin bot
 will visit this URL for us. For example:
@@ -65,7 +65,7 @@ url: http://idek-hello.chal.idek.team:1337
 
 Result:
 
-![admin-visiting](/blog/images/2024-08-18-22-33-18.png)
+![admin-visiting](/images/2024-08-18-22-33-18.png)
 
 Since the 'admin' will visit our page, maybe the page that the admin was at contains
 information that we want, a FLAG cookie for example, but in order to verify my claim,
@@ -272,7 +272,7 @@ location = /info.php {
 ```
 
 
-![access-denied-info-page](/blog/images/2024-08-18-23-09-38.png)
+![access-denied-info-page](/images/2024-08-18-23-09-38.png)
 
 
 Nginx denies access to an exact location `/info.php`. If we navigate to something
@@ -281,7 +281,7 @@ This is called an HTTP Desync attack, which arises from the subtle discrepancies
 which two technologies handle HTTP requests. Let's try it out:
 
 
-![bypass-info-page](/blog/images/2024-08-18-23-15-42.png)
+![bypass-info-page](/images/2024-08-18-23-15-42.png)
 
 
 There we go! We bypassed the nginx rule, all there is left is creating an XSS payload
@@ -373,7 +373,7 @@ T04uc3RyaW5naWZ5KHtjb250ZW50OmR9KX0pKQ=='))">
 
 Click on submit...
 
-![flag-cookie](/blog/images/2024-08-18-23-44-03.png)
+![flag-cookie](/images/2024-08-18-23-44-03.png)
 
 There we go~
 

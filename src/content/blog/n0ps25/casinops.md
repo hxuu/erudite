@@ -52,7 +52,7 @@ Finally, we automate the exploit to retrieve the flag from the exported CSV.
 At a glance, the app appears to be a simple casino interface: users register, log in, and play a luck-based game to win a jackpot
 However, the “game” is clearly **rigged**—even if you “win,” the target sum increases, making it impossible to profit.
 
-![showcasing the website](/blog/images/showcase.gif)
+![showcasing the website](/images/showcase.gif)
 
 Another feature is exporting user data as a CSV file containing their username, email, number of plays, and net gains.
 
@@ -132,14 +132,14 @@ Nothing in the HTML hints at dangerous behavior. Let’s move on to network traf
 
 By observing requests and responses, we see:
 
-![server reveiling request](/blog/images/2025-06-02-16-19-45.png)
+![server reveiling request](/images/2025-06-02-16-19-45.png)
 
 - The `Server` **header** reveals **Werkzeug**, a Python [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) utility library commonly used with Flask.
 
 > [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) is created for different python web servers
 > to share a common interface to web application development
 
-![session cookie response](/blog/images/2025-06-02-16-21-21.png)
+![session cookie response](/images/2025-06-02-16-21-21.png)
 
 - The `Set-Cookie` **header** after login shows a session cookie that appears to be a **Flask-signed** cookie (using [itsdangerous](https://itsdangerous.palletsprojects.com/en/stable/) library).
 
@@ -151,7 +151,7 @@ By observing requests and responses, we see:
 >
 > If we obtain valid JSON, it’s almost certain the app is using Flask’s default session mechanism.
 
-![confirming flask backend](/blog/images/2025-06-02-16-25-19.png)
+![confirming flask backend](/images/2025-06-02-16-25-19.png)
 
 Readable text! It seems that we're sure what we're dealing with: a Flask application.
 
@@ -233,7 +233,7 @@ But wait, which object is that? Is there a way to pass an object while all we co
 Good observation, we as users can't inject objects, but we can use already existing ones,
 specifically, ones that flask supplies by default. Those are:
 
-![The following global variables are available within Jinja2 templates by default:](/blog/images/2025-06-02-14-57-49.png)
+![The following global variables are available within Jinja2 templates by default:](/images/2025-06-02-14-57-49.png)
 
 Ok you might say, I can use these objects, and?
 
@@ -254,7 +254,7 @@ This gives the illusion of a graph, where the root object is `object`, and every
 So by climbing the inheritance ladder, we can reach the top, and go to another bottom,
 that is importing a malicious builtin module, say `subprocess`, to achieve RCE.
 
-![python inheritance tree diagram](/blog/images/2025-06-02-21-21-57.png)
+![python inheritance tree diagram](/images/2025-06-02-21-21-57.png)
 
 ## Exploitation
 

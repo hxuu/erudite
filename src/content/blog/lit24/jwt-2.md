@@ -213,7 +213,7 @@ console.log("Generated JWT Token:", token);
 Running the code above gives a valid token. We just have to replace the cookies given
 by the application by our newly crafted token, and then pressing GET FLAG.
 
-![flag](/blog/images/2024-08-13-19-02-45.png)
+![flag](/images/2024-08-13-19-02-45.png)
 
 ---
 

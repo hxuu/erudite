@@ -40,7 +40,7 @@ The latest trendz is all about Go and HTMX, but what could possibly go wrong? A 
 
 We're given the following web page (after we login)
 
-![functionality](/blog/images/2024-09-02-11-15-54.png)
+![functionality](/images/2024-09-02-11-15-54.png)
 
 We can create posts and view them. Following what the description says, our job is to view
 this hidden post, luckily for us, we're given the source code [here](https://2024.csc.tf/files/b8af02ac0f411268b239e62fd2c6e7dd/handout_trendz.zip?token=eyJ1c2VyX2lkIjo4MDEsInRlYW1faWQiOjQwMCwiZmlsZV9pZCI6NTB9.ZtWjAA.MI0GGzruP8zhlBfSGxRmioVo8zQ)
@@ -194,7 +194,7 @@ admins.
 Let's dive deeper into the codebase, where is the `AdminDashboard` mentioned again?
 
 
-![admin-dashboard-in-codebase](/blog/images/2024-09-02-12-15-11.png)
+![admin-dashboard-in-codebase](/images/2024-09-02-12-15-11.png)
 
 One occurence in the `main.go` script under the `admin` group. To access the admin dashboard, we first
 have to validate the access token, then we have to validate the admin. Let's check the code for both:
@@ -357,17 +357,17 @@ func main() {
 
 Running the script gives us a valid JWT Token.
 
-![generated-token](/blog/images/2024-09-02-12-39-26.png)
+![generated-token](/images/2024-09-02-12-39-26.png)
 
 Now we just have to login as user `hxuu`, replace the `accesstoken` in the cookies with our
 token, and access `/admin/dashboard`.
 
-![got-to-dashboard](/blog/images/2024-09-02-12-41-09.png)
+![got-to-dashboard](/images/2024-09-02-12-41-09.png)
 
 Awesome, we can see the wanted post id. Let's access it using `/user/posts/<id>`
 
 
-![flag](/blog/images/2024-09-02-12-42-45.png)
+![flag](/images/2024-09-02-12-42-45.png)
 
 And there we go~ Flag is: `CSCTF{0a97afb3-64be-4d96-aa52-86a91a2a3c52}`
 
