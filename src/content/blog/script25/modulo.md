@@ -56,9 +56,7 @@ Numbers and strings are generated dynamically using a combination of the modulo 
 
 Final payload executes arbitrary shell commands remotely.
 
-{{< notice tip >}}
-Tip: skip to exploitation if you only care about the payload
-{{< /notice >}}
+> skip to exploitation if you only care about the payload
 
 ## Initial Analysis
 

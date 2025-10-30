@@ -6,10 +6,10 @@ export async function getAllAuthors(): Promise<CollectionEntry<'authors'>[]> {
 }
 
 export async function getAllPosts(): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection('blog')
-  return posts
-    .filter((post) => !post.data.draft && !isSubpost(post.id))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    const posts = await getCollection('blog')
+    return posts
+        .filter((post) => !post.data.draft)
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 }
 
 export async function getAllPostsAndSubposts(): Promise<
