@@ -1,6 +1,6 @@
 ---
 name: 'hxuu'
-avatar: 'https://1.gravatar.com/avatar/4e05b9e6a14061785949d1c557ef643ad2a5ce63a4fd8aa7c6901e6e47b200db?size=256'
+avatar: 'https://gravatar.com/userimage/273235725/3766d5ea0dd3480c084eb67d774b70ba.jpeg?size=256'
 bio: "I am. I believe what I'm offering is worth your while."
 website: 'https://hxuu.github.io/blog/'
 twitter: 'https://twitter.com/hxuu0'
